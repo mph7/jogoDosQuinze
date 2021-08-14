@@ -96,16 +96,14 @@ def recebeJogada():
     jogada = input("Qual peça voce deseja mover? ")
     if jogada == "":
         return False
-    else:
-        jogada = int(jogada)
+    jogada = int(jogada)
     linhaPeca, colunaPeca, linhaVazia, colunaVazia, jogadaValida = achaPosicaoJogada(
         jogada)
     if jogadaValida:
         fazerJogada(linhaPeca, colunaPeca, linhaVazia, colunaVazia)
         rodada += 1
         return True
-    else:
-        return False
+    return False
 
 
 def achaPosicaoJogada(num):
@@ -133,8 +131,7 @@ def achaPosicaoJogada(num):
         linhaPeca, colunaPeca)
     if jogadaValida:
         return linhaPeca, colunaPeca, linhaVazia, colunaVazia, jogadaValida
-    else:
-        return -1, -1, -1, -1, jogadaValida
+    return -1, -1, -1, -1, jogadaValida
 
 
 def verificaJogada(linhaPeca, colunaPeca):
@@ -164,14 +161,13 @@ def verificaJogada(linhaPeca, colunaPeca):
 
     if numeroNorte == 0:
         return linhaNorte, colunaNorte, True
-    elif numeroSul == 0:
+    if numeroSul == 0:
         return linhaSul, colunaSul, True
-    elif numeroLeste == 0:
+    if numeroLeste == 0:
         return linhaLeste, colunaLeste, True
-    elif numeroOeste == 0:
+    if numeroOeste == 0:
         return linhaOeste, colunaOeste, True
-    else:
-        return linhaVazia, colunaVazia, jogadaValida
+    return linhaVazia, colunaVazia, jogadaValida
 
 
 def tutorial():
