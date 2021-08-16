@@ -13,7 +13,6 @@ def main():
 
     while jogando:
         imprimeJogo(matriz)
-    return
 
 
 def geraMatriz(matriz):
@@ -65,7 +64,6 @@ def verificaSeJogadorDesejaInserirUmaPosicao(opcao):
         if not jogadaValida:
             print("\nJogada inválida")
             imprimeJogo(matriz)
-    return
 
 
 def fazerJogada(linhaPeca, colunaPeca, linhaVazia, colunaVazia):
@@ -75,7 +73,6 @@ def fazerJogada(linhaPeca, colunaPeca, linhaVazia, colunaVazia):
     matriz[linhaVazia][colunaVazia] = aux
 
     verificaSeVenceu()
-    return
 
 
 def verificaSeVenceu():
