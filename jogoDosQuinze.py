@@ -4,14 +4,15 @@ jogando = True
 matriz = []
 rodada = 1
 
+
 def main():
-    
+
     tutorial()
     geraMatriz(matriz)
 
     while jogando:
-        imprimeJogo(matriz)    
-    return
+        imprimeJogo(matriz)
+
 
 def geraMatriz(tabuleiro):
     lista = list(range(0, 16))
@@ -32,14 +33,15 @@ def imprimeJogo(tabuleiro):
     print('|%2.d %2.d %2.d %2.d|' % (tabuleiro[3][0], tabuleiro[3][1], tabuleiro[3][2], tabuleiro[3][3], ))
     opcao = True
     verificaSeJogadorDesejaInserirUmaPosicao(opcao)
-    
+
+
 def verificaSeJogadorDesejaInserirUmaPosicao(opcao):
     if opcao:
         jogadaValida = recebeJogada()
         if not jogadaValida:
-            print('\nJogada inválida')
+            print("\nJogada inválida")
             imprimeJogo(matriz)
-    return
+
 
 def fazerJogada(linhaPeca, colunaPeca, linhaVazia, colunaVazia):
 
@@ -48,7 +50,7 @@ def fazerJogada(linhaPeca, colunaPeca, linhaVazia, colunaVazia):
     matriz[linhaVazia][colunaVazia] = aux
 
     verificaSeVenceu()
-    return
+
 
 def verificaSeVenceu():
     global jogando
@@ -56,35 +58,35 @@ def verificaSeVenceu():
     venceu = matriz == jogoVencedor
     if venceu:
         jogando = False
-        print('Parabéns, Você venceu O Jogo em %d rodadas!!!' % rodada)
+        print("Parabéns, Você venceu O Jogo em %d rodadas!!!" % rodada)
     return venceu
+
 
 def recebeJogada():
     global rodada
     
     jogadaValida = False
 
-    jogada = input('Qual peça voce deseja mover? ')
-    if jogada == '':
+    jogada = input("Qual peça voce deseja mover? ")
+    if jogada == "":
         return False
-    else:
-        jogada = int(jogada)
-    linhaPeca, colunaPeca, linhaVazia, colunaVazia, jogadaValida = achaPosicaoJogada(jogada)
+    jogada = int(jogada)
+    linhaPeca, colunaPeca, linhaVazia, colunaVazia, jogadaValida = achaPosicaoJogada(
+        jogada)
     if jogadaValida:
         fazerJogada(linhaPeca, colunaPeca, linhaVazia, colunaVazia)
         rodada += 1
         return True
-    else:
-        return False
-    
+    return False
+
+
 def achaPosicaoJogada(num):
-##    global matriz
     linhaPeca = colunaPeca = linhaVazia = colunaVazia = 0
     linha1 = matriz[0]
     linha2 = matriz[1]
     linha3 = matriz[2]
     linha4 = matriz[3]
-    
+
     if linha1.count(num) == 1:
         linhaPeca = 0
         colunaPeca = linha1.index(num)
@@ -97,19 +99,18 @@ def achaPosicaoJogada(num):
     elif linha4.count(num) == 1:
         linhaPeca = 3
         colunaPeca = linha4.index(num)
-    
-    linhaVazia, colunaVazia, jogadaValida = verificaJogada(linhaPeca, colunaPeca)
+
+    linhaVazia, colunaVazia, jogadaValida = verificaJogada(
+        linhaPeca, colunaPeca)
     if jogadaValida:
         return linhaPeca, colunaPeca, linhaVazia, colunaVazia, jogadaValida
-    else:
-        return -1, -1, -1, -1, jogadaValida
+    return -1, -1, -1, -1, jogadaValida
 
-def verificaJogada(linhaPeca, colunaPeca):
-##    global matriz
-    
+
+def verificaJogada(linhaPeca, colunaPeca):    
     linhaVazia = colunaVazia = 0
     numeroNorte = numeroSul = numeroLeste = numeroOeste = -1
-    
+
     linhaNorte = linhaPeca - 1
     colunaNorte = colunaPeca
     linhaSul = linhaPeca + 1
@@ -118,7 +119,7 @@ def verificaJogada(linhaPeca, colunaPeca):
     colunaLeste = colunaPeca + 1
     linhaOeste = linhaPeca
     colunaOeste = colunaPeca - 1
-    
+
     if 4 > linhaNorte >= 0 and 4 > colunaNorte >= 0:
         numeroNorte = matriz[linhaNorte][colunaNorte]
     if 4 > linhaSul >= 0 and 4 > colunaSul >= 0:
@@ -128,19 +129,20 @@ def verificaJogada(linhaPeca, colunaPeca):
     if 4 > linhaOeste >= 0 and 4 > colunaOeste >= 0:
         numeroOeste = matriz[linhaOeste][colunaOeste]
     jogadaValida = False
-    
+
     if numeroNorte == 0:
         return linhaNorte, colunaNorte, True
-    elif numeroSul == 0:
+    if numeroSul == 0:
         return linhaSul, colunaSul, True
-    elif numeroLeste == 0:
+    if numeroLeste == 0:
         return linhaLeste, colunaLeste, True
-    elif numeroOeste == 0:
+    if numeroOeste == 0:
         return linhaOeste, colunaOeste, True
-    else:
-        return linhaVazia, colunaVazia, jogadaValida
-    
+    return linhaVazia, colunaVazia, jogadaValida
+
+
 def tutorial():
-    print('Jogo dos Quinze')
-    
+    print("Jogo dos Quinze")
+
+
 main()
