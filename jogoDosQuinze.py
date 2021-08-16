@@ -23,14 +23,35 @@ def geraMatriz(tabuleiro):
             linha.append(x)
             lista.remove(x)
         tabuleiro.append(linha)
-                                
-def imprimeJogo(tabuleiro):
-    print('============= RODADA %d =============' % rodada)
 
-    print('|%2.d %2.d %2.d %2.d|' % (tabuleiro[0][0], tabuleiro[0][1], tabuleiro[0][2], tabuleiro[0][3], ))
-    print('|%2.d %2.d %2.d %2.d|' % (tabuleiro[1][0], tabuleiro[1][1], tabuleiro[1][2], tabuleiro[1][3], ))
-    print('|%2.d %2.d %2.d %2.d|' % (tabuleiro[2][0], tabuleiro[2][1], tabuleiro[2][2], tabuleiro[2][3], ))
-    print('|%2.d %2.d %2.d %2.d|' % (tabuleiro[3][0], tabuleiro[3][1], tabuleiro[3][2], tabuleiro[3][3], ))
+
+def imprimeJogo(tabuleiro):
+    print("============= RODADA %d =============" % rodada)
+
+    print("|%2.d %2.d %2.d %2.d|" % (
+        tabuleiro[0][0],
+        tabuleiro[0][1],
+        tabuleiro[0][2],
+        tabuleiro[0][3],
+    ))
+    print("|%2.d %2.d %2.d %2.d|" % (
+        tabuleiro[1][0],
+        tabuleiro[1][1],
+        tabuleiro[1][2],
+        tabuleiro[1][3],
+    ))
+    print("|%2.d %2.d %2.d %2.d|" % (
+        tabuleiro[2][0],
+        tabuleiro[2][1],
+        tabuleiro[2][2],
+        tabuleiro[2][3],
+    ))
+    print("|%2.d %2.d %2.d %2.d|" % (
+        tabuleiro[3][0],
+        tabuleiro[3][1],
+        tabuleiro[3][2],
+        tabuleiro[3][3],
+    ))
     opcao = True
     verificaSeJogadorDesejaInserirUmaPosicao(opcao)
 
@@ -54,7 +75,8 @@ def fazerJogada(linhaPeca, colunaPeca, linhaVazia, colunaVazia):
 
 def verificaSeVenceu():
     global jogando
-    jogoVencedor = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 0]]
+    jogoVencedor = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12],
+                    [13, 14, 15, 0]]
     venceu = matriz == jogoVencedor
     if venceu:
         jogando = False
@@ -64,7 +86,7 @@ def verificaSeVenceu():
 
 def recebeJogada():
     global rodada
-    
+
     jogadaValida = False
 
     jogada = input("Qual peça voce deseja mover? ")
@@ -107,7 +129,7 @@ def achaPosicaoJogada(num):
     return -1, -1, -1, -1, jogadaValida
 
 
-def verificaJogada(linhaPeca, colunaPeca):    
+def verificaJogada(linhaPeca, colunaPeca):
     linhaVazia = colunaVazia = 0
     numeroNorte = numeroSul = numeroLeste = numeroOeste = -1
 
