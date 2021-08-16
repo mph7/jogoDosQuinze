@@ -26,13 +26,33 @@ def geraMatriz(tabuleiro):
 
 
 def imprimeJogo(tabuleiro):
-    print('============= RODADA %d =============' % rodada)
+    print("============= RODADA %d =============" % rodada)
     t = tabuleiro
     t0, t1, t2, t3 = t[0], t[1], t[2], t[3]
-    print('|%2.d %2.d %2.d %2.d|' % (t0[0], t0[1], t0[2], t0[3], ))
-    print('|%2.d %2.d %2.d %2.d|' % (t1[0], t1[1], t1[2], t1[3], ))
-    print('|%2.d %2.d %2.d %2.d|' % (t2[0], t2[1], t2[2], t2[3], ))
-    print('|%2.d %2.d %2.d %2.d|' % (t3[0], t3[1], t3[2], t3[3], ))
+    print("|%2.d %2.d %2.d %2.d|" % (
+        t0[0],
+        t0[1],
+        t0[2],
+        t0[3],
+    ))
+    print("|%2.d %2.d %2.d %2.d|" % (
+        t1[0],
+        t1[1],
+        t1[2],
+        t1[3],
+    ))
+    print("|%2.d %2.d %2.d %2.d|" % (
+        t2[0],
+        t2[1],
+        t2[2],
+        t2[3],
+    ))
+    print("|%2.d %2.d %2.d %2.d|" % (
+        t3[0],
+        t3[1],
+        t3[2],
+        t3[3],
+    ))
     opcao = True
     verificaSeJogadorDesejaInserirUmaPosicao(opcao)
 
@@ -56,7 +76,8 @@ def fazerJogada(linhaPeca, colunaPeca, linhaVazia, colunaVazia):
 
 def verificaSeVenceu():
     global jogando
-    jogoVencedor = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 0]]
+    jogoVencedor = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12],
+                    [13, 14, 15, 0]]
     venceu = matriz == jogoVencedor
     if venceu:
         jogando = False
