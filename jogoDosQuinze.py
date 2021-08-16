@@ -23,14 +23,16 @@ def geraMatriz(tabuleiro):
             linha.append(x)
             lista.remove(x)
         tabuleiro.append(linha)
-                                
+
+
 def imprimeJogo(tabuleiro):
     print('============= RODADA %d =============' % rodada)
-
-    print('|%2.d %2.d %2.d %2.d|' % (tabuleiro[0][0], tabuleiro[0][1], tabuleiro[0][2], tabuleiro[0][3], ))
-    print('|%2.d %2.d %2.d %2.d|' % (tabuleiro[1][0], tabuleiro[1][1], tabuleiro[1][2], tabuleiro[1][3], ))
-    print('|%2.d %2.d %2.d %2.d|' % (tabuleiro[2][0], tabuleiro[2][1], tabuleiro[2][2], tabuleiro[2][3], ))
-    print('|%2.d %2.d %2.d %2.d|' % (tabuleiro[3][0], tabuleiro[3][1], tabuleiro[3][2], tabuleiro[3][3], ))
+    t = tabuleiro
+    t0, t1, t2, t3 = t[0], t[1], t[2], t[3]
+    print('|%2.d %2.d %2.d %2.d|' % (t0[0], t0[1], t0[2], t0[3], ))
+    print('|%2.d %2.d %2.d %2.d|' % (t1[0], t1[1], t1[2], t1[3], ))
+    print('|%2.d %2.d %2.d %2.d|' % (t2[0], t2[1], t2[2], t2[3], ))
+    print('|%2.d %2.d %2.d %2.d|' % (t3[0], t3[1], t3[2], t3[3], ))
     opcao = True
     verificaSeJogadorDesejaInserirUmaPosicao(opcao)
 
@@ -64,7 +66,7 @@ def verificaSeVenceu():
 
 def recebeJogada():
     global rodada
-    
+
     jogadaValida = False
 
     jogada = input("Qual peça voce deseja mover? ")
@@ -107,7 +109,7 @@ def achaPosicaoJogada(num):
     return -1, -1, -1, -1, jogadaValida
 
 
-def verificaJogada(linhaPeca, colunaPeca):    
+def verificaJogada(linhaPeca, colunaPeca):
     linhaVazia = colunaVazia = 0
     numeroNorte = numeroSul = numeroLeste = numeroOeste = -1
 
